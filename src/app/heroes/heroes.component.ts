@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
+import { flyInOut } from "../animations";
+
 @Component({
-  selector: 'app-heros',
+  selector: 'app-heroes',
   template: `<router-outlet></router-outlet>`,
-  styles: []
+  styles: [],
+  animations: [flyInOut]
 })
-export class HerosComponent implements OnInit {
+export class HeroesComponent implements OnInit {
 
   constructor() { }
 

@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
-import { NavComponent } from './nav/nav.component';
+import { NavigateComponent } from './navigate/navigate.component';
+import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
@@ -11,7 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     CommonModule,
     RouterModule,
   ],
-  exports: [NavComponent],
-  declarations: [NavComponent, NotFoundComponent]
+  exports: [NavigateComponent],
+  declarations: [NavigateComponent, LoginComponent, NotFoundComponent]
 })
 export class CoreModule { }

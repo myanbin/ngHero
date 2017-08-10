@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { LoginComponent } from "./core/login/login.component";
 import { NotFoundComponent } from './core/not-found/not-found.component';
+
+import { AuthorizationGuard } from "./shared/authorization/authorization-guard.service";
 
 const routes: Routes = [
   { path: '', redirectTo: 'heros', pathMatch: 'full' },
-  { path: 'heros', loadChildren: './heros/heros.module#HerosModule' },
+  { path: 'heroes', loadChildren: './heroes/heroes.module#HeroesModule', canLoad: [AuthorizationGuard] },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
