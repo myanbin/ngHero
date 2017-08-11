@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate, CanLoad }    from '@angular/router';
+import { Router, CanActivate, CanLoad, ActivatedRouteSnapshot, RouterStateSnapshot }    from '@angular/router';
 
 import { AuthorizationService } from "./authorization.service";
 
@@ -11,18 +11,19 @@ export class AuthorizationGuard implements CanActivate, CanLoad {
     private authorizationService: AuthorizationService
   ) { }
 
-  canActivate() {
-    return this.checkLogin();
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    return this.checkLogin(state.url);
   }
 
   canLoad() {
     return this.checkLogin();
   }
 
-  checkLogin(): boolean {
-    if (this.authorizationService.isLoggedIn()) {
+  checkLogin(url?: string): boolean {
+    if (this.authorizationService.isLoggedIn) {
       return true;
     }
+    this.authorizationService.redirectUrl = url;
     this.router.navigate(['/login']);
     return false;
   }

@@ -7,8 +7,6 @@ import { CoreModule } from './core/core.module';
 
 import { AppRoutingModule } from "./app-routing.module";
 
-import { AuthorizationService } from './shared/authorization/authorization.service';
-import { AuthorizationGuard } from './shared/authorization/authorization-guard.service';
 
 @NgModule({
   declarations: [
@@ -18,9 +16,8 @@ import { AuthorizationGuard } from './shared/authorization/authorization-guard.s
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    CoreModule,
+    CoreModule.forRoot(),
   ],
-  providers: [AuthorizationService, AuthorizationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

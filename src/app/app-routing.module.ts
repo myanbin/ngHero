@@ -4,10 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from "./core/login/login.component";
 import { NotFoundComponent } from './core/not-found/not-found.component';
 
-import { AuthorizationGuard } from "./shared/authorization/authorization-guard.service";
+import { AuthorizationGuard } from "./core/authorization/authorization-guard.service";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'heros', pathMatch: 'full' },
+  { path: '', redirectTo: 'heroes', pathMatch: 'full' },
   { path: 'heroes', loadChildren: './heroes/heroes.module#HeroesModule', canLoad: [AuthorizationGuard] },
   { path: 'login', component: LoginComponent },
   { path: '**', component: NotFoundComponent },
