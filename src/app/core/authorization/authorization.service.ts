@@ -7,7 +7,7 @@ export class AuthorizationService {
 
   constructor() { }
 
-  isLoggedIn: boolean = true;
+  isLoggedIn: boolean = false;
 
   redirectUrl: string;
 
