@@ -1,11 +1,11 @@
 import { browser, by, element } from 'protractor';
 
-export class DashPage {
+export class ngheroPage {
   navigateTo() {
     return browser.get('/');
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('app-navigate span')).getText();
   }
 }

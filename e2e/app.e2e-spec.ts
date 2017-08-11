@@ -1,14 +1,14 @@
-import { DashPage } from './app.po';
+import { ngheroPage } from './app.po';
 
-describe('dash App', () => {
-  let page: DashPage;
+describe('nghero App', () => {
+  let page: ngheroPage;
 
   beforeEach(() => {
-    page = new DashPage();
+    page = new ngheroPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display navigate title', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!!');
+    expect(page.getParagraphText()).toEqual('梁山英雄管理中心');
   });
 });
