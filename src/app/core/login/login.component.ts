@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { AuthorizationService } from "../authorization/authorization.service";
 
@@ -15,18 +16,22 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private titleService: Title,
     private authorizationService: AuthorizationService,
   ) { }
 
   ngOnInit() {
+    this.titleService.setTitle('登录');
+    if (this.authorizationService.isLoggedIn === true) {
+      this.router.navigate(['/']);
+    }
   }
 
   handleSubmit() {
-    console.log('logining:', this.username, this.password);
 
-    this.authorizationService.authorize(this.username, this.password).then(isLoggedIn => {
-      if (isLoggedIn === true) {
-        let redirect = this.authorizationService.redirectUrl ? this.authorizationService.redirectUrl : '/admin';
+    this.authorizationService.signin(this.username, this.password).then(logStatus => {
+      if (logStatus === true) {
+        const redirect = this.authorizationService.redirectUrl ? this.authorizationService.redirectUrl : '/';
         this.router.navigate([redirect]);
       } else {
         console.log('login failed');

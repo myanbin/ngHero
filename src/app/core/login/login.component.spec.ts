@@ -9,6 +9,8 @@ describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
+  let authorizationService: AuthorizationService;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ RouterTestingModule, FormsModule ],
@@ -21,6 +23,8 @@ describe('LoginComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
+
+    authorizationService = TestBed.get(AuthorizationService);
     fixture.detectChanges();
   });
 

@@ -7,10 +7,10 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
 import { AuthorizationGuard } from "./core/authorization/authorization-guard.service";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'heroes', pathMatch: 'full' },
-  { path: 'heroes', loadChildren: './heroes/heroes.module#HeroesModule', canLoad: [AuthorizationGuard] },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'hero', loadChildren: './heroes/heroes.module#HeroesModule', canLoad: [AuthorizationGuard] },
   { path: 'login', component: LoginComponent },
-  { path: '**', component: NotFoundComponent },
+  { path: '**', component: NotFoundComponent, canActivate: [AuthorizationGuard] },
 ];
 
 @NgModule({
