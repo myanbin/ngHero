@@ -42,4 +42,11 @@ describe('NavigateComponent', () => {
     fixture.detectChanges();
     expect(compiled.querySelector('.nav-end').textContent).toContain('注销');
   });
+
+  it('should display logoin', () => {
+    let compiled = fixture.debugElement.nativeElement;
+    authorizationService.isLoggedIn = false;
+    fixture.detectChanges();
+    expect(compiled.querySelector('.nav-end').textContent).toContain('登录');
+  });
 });
