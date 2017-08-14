@@ -22,7 +22,7 @@ import { AuthorizationGuard } from './authorization/authorization-guard.service'
 })
 export class CoreModule {
 
-  static forRoot():ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule
     }
